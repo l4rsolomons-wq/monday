@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Login - Helpufin-Auto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1A2C49",
+                        "primary-darker": "#0F1A2A",
+                        "accent": "#E0D13D",
+                        "accent-light": "#D4AF37",
+                        "background-light": "#F8F8F8",
+                        "background-dark": "#0D1117",
+                        "text-main": "#212529",
+                        "text-muted": "#6C757D",
+                        "hero-bg-light-blue": "#1A2C49",
+                        "gold-gradient-start": "#B8860B",
+                        "gold-gradient-end": "#DAA520",
+                    },
+                    fontFamily: {
+                        "display": ["Montserrat", "sans-serif"],
+                        "sans": ["Montserrat", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        .luxury-text-gradient {
+            background: linear-gradient(90deg, var(--gold-gradient-start), var(--gold-gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-white font-sans">
+    <div class="min-h-screen flex items-center justify-center px-4">
+        <div class="w-full max-w-md bg-white dark:bg-[#1a2332] p-8 rounded-xl shadow-xl">
+            <h2 class="text-3xl font-bold text-center mb-6 luxury-text-gradient">Login to Your Account</h2>
+            <form id="loginForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2" for="email">Email</label>
+                    <input class="w-full h-12 rounded-lg border-gray-200 bg-gray-50 px-4 text-sm dark:border-gray-700 dark:bg-background-dark dark:text-white" id="email" placeholder="Enter your email" type="email" required/>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium mb-2" for="password">Password</label>
+                    <input class="w-full h-12 rounded-lg border-gray-200 bg-gray-50 px-4 text-sm dark:border-gray-700 dark:bg-background-dark dark:text-white" id="password" placeholder="Enter your password" type="password" required/>
+                </div>
+                <button class="w-full h-12 rounded-lg bg-accent text-white font-bold hover:bg-accent-light transition-colors" type="submit">Login</button>
+            </form>
+            <p class="text-center mt-4 text-sm text-text-muted">Don't have an account? <a class="text-accent hover:underline" href="signup.html">Sign Up</a></p>
+            <p id="message" class="text-center mt-4 text-sm font-medium"></p>
+        </div>
+    </div>
+    <script>
+        const supabase = Supabase.createClient('YOUR_SUPABASE_URL', 'YOUR_ANON_KEY'); // Replace with your creds
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const message = document.getElementById('message');
+
+            const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+            if (error) {
+                message.textContent = error.message;
+                message.classList.add('text-red-500');
+            } else {
+                message.textContent = 'Login successful! Redirecting...';
+                message.classList.add('text-green-500');
+                window.location.href = 'index.html'; // Redirect to homepage
+            }
+        });
+    </script>
+</body>
+</html>

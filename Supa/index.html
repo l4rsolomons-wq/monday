@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<!-- Declares the document type as HTML5 -->
+<html class="light" lang="en">
+<!-- Root element of the HTML page; "light" class sets default light mode; lang="en" specifies English language -->
+<head>
+    <!-- Contains metadata about the document -->
+    <meta charset="utf-8"/>
+    <!-- Defines character encoding as UTF-8 -->
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <!-- Makes the page responsive by setting viewport to device width and initial zoom level -->
+    <title>Helpufin-Auto Homepage</title>
+    <!-- Title shown in browser tab -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <!-- Imports Montserrat font from Google Fonts for typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Imports Material Symbols Outlined for icons -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Loads Tailwind CSS from CDN with forms and container-queries plugins enabled -->
+    <script id="tailwind-config">
+        // Custom Tailwind configuration script
+        tailwind.config = {
+            darkMode: "class", // Enables dark mode toggling via "dark" class on html/body
+            theme: {
+                extend: {
+                    // Custom color palette
+                    colors: {
+                        "primary": "#1A2C49", // Deep Navy
+                        "primary-darker": "#0F1A2A",
+                        "accent": "#E0D13D", // Muted Gold
+                        "accent-light": "#D4AF37", // Lighter gold for hover states
+                        "background-light": "#F8F8F8",
+                        "background-dark": "#0D1117",
+                        "text-main": "#212529",
+                        "text-muted": "#6C757D",
+                        "hero-bg-light-blue": "#1A2C49",
+                        "gold-gradient-start": "#B8860B",
+                        "gold-gradient-end": "#DAA520",
+                    },
+                    // Custom font family
+                    fontFamily: {
+                        "display": ["Montserrat", "sans-serif"],
+                        "sans": ["Montserrat", "sans-serif"],
+                    },
+                    // Custom border radius values
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        /* Custom CSS rules using Tailwind directives */
+        .dropdown-menu {
+            display: none; /* Hidden by default */
+            color: rgba(217, 192, 68, 0.941);
+        }
+        .group:hover .dropdown-menu {
+            display: block; /* Show dropdown on hover of parent group */
+            animation: fadeIn 0.2s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .luxury-text-gradient {
+            /* Gradient text effect using gold colors */
+            background: linear-gradient(90deg, var(--gold-gradient-start), var(--gold-gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-white font-sans overflow-x-hidden">
+    <!-- Main page body with base styling and dark mode support -->
+
+    <header class="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur-sm dark:bg-background-dark/95 dark:border-gray-800">
+        <!-- Sticky header with backdrop blur and dark mode variants -->
+        <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+            <!-- Centered container for header content -->
+            <div class="flex items-center gap-2">
+                <!-- Logo area -->
+                <div class="flex size-10 items-center justify-center rounded-lg bg-primary text-white">
+                    <span class="material-symbols-outlined text-2xl">directions_car</span>
+                    <!-- Car icon as logo -->
+                </div>
+                <h1 class="text-xl font-bold tracking-tight text-text-main dark:text-white">
+                    <a href="index.html">Helpufin<span class="text-accent">-Auto</span></a>
+                    <!-- Brand name with accent-colored suffix -->
+                </h1>
+            </div>
+
+            <nav class="hidden lg:flex items-center gap-8">
+                <!-- Desktop navigation (hidden on smaller screens) -->
+                <div class="relative group h-20 flex items-center">
+                    <!-- "Buy" dropdown menu -->
+                    <button class="flex items-center gap-1 text-sm font-semibold text-text-main hover:text-accent dark:text-gray-200 dark:hover:text-accent transition-colors">
+                        <a href="buy2.html">Buy</a>
+                        <span class="material-symbols-outlined text-sm">expand_more</span>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full w-48 rounded-lg border border-gray-200 bg-white p-2 shadow-xl dark:border-gray-800 dark:bg-[#1a2332]">
+                        <!-- Dropdown items -->
+                        <a class="block rounded-md px-4 py-2 text-sm text-text-main hover:bg-accent/10 dark:text-gray-200 dark:hover:bg-accent/20 dark:hover:text-accent-light transition-colors" href="featured-cars.html">Featured Vehicles</a>
+                        <a class="block rounded-md px-4 py-2 text-sm text-text-main hover:bg-accent/10 dark:text-gray-200 dark:hover:bg-accent/20 dark:hover:text-accent-light transition-colors" href="new-cars.html">New Vehicles</a>
+                        <a class="block rounded-md px-4 py-2 text-sm text-text-main hover:bg-accent/10 dark:text-gray-200 dark:hover:bg-accent/20 dark:hover:text-accent-light transition-colors" href="pre-owned.html">Pre-Owned Vehicles</a>
+                    </div>
+                </div>
+                <div class="relative group h-20 flex items-center">
+                    <!-- "Sell" dropdown menu -->
+                    <button class="flex items-center gap-1 text-sm font-semibold text-text-main hover:text-accent dark:text-gray-200 dark:hover:text-accent transition-colors">
+                        <a href="sell.html">Sell</a>
+                        <span class="material-symbols-outlined text-sm">expand_more</span>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full w-48 rounded-lg border border-gray-200 bg-white p-2 shadow-xl dark:border-gray-800 dark:bg-[#1a2332]">
+                        <a class="block rounded-md px-4 py-2 text-sm text-text-main hover:bg-accent/10 dark:text-gray-200 dark:hover:bg-accent/20 dark:hover:text-accent-light transition-colors" href="dealer-sell.html">For Dealerships</a>
+                        <a class="block rounded-md px-4 py-2 text-sm text-text-main hover:bg-accent/10 dark:text-gray-200 dark:hover:bg-accent/20 dark:hover:text-accent-light transition-colors" href="private-sell.html">Private Sale</a>
+                    </div>
+                </div>
+                <!-- Regular navigation links -->
+                <a class="text-sm font-semibold text-text-main hover:text-accent dark:text-gray-200 dark:hover:text-accent transition-colors" href="special.html">On Special</a>
+                <a class="text-sm font-semibold text-text-main hover:text-accent dark:text-gray-200 dark:hover:text-accent transition-colors" href="saved.html">Saved</a>
+                <a class="text-sm font-semibold text-text-main hover:text-accent dark:text-gray-200 dark:hover:text-accent transition-colors" href="fleet.html">Fleet</a>
+                <a class="text-sm font-semibold text-text-main hover:text-accent dark:text-gray-200 dark:hover:text-accent transition-colors" href="apply.html">Apply</a>
+                <a class="text-sm font-semibold text-text-main hover:text-accent dark:text-gray-200 dark:hover:text-accent transition-colors" href="services.html">Services</a>
+                <a class="text-sm font-semibold text-text-main hover:text-accent dark:text-gray-200 dark:hover:text-accent transition-colors" href="contact.html">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <!-- Right-side buttons (Login, Sign Up, Mobile menu) -->
+                <button class="hidden sm:flex h-10 items-center justify-center rounded-lg px-6 text-sm font-bold text-text-main hover:bg-gray-100 dark:text-white dark:hover:bg-white/10 transition-colors">
+                    Login
+                </button>
+                <button class="flex h-10 items-center justify-center rounded-lg bg-accent px-6 text-sm font-bold text-white shadow-sm transition-transform hover:scale-105 hover:bg-accent-light">
+                    Sign Up
+                </button>
+                <button class="lg:hidden p-2 text-text-main dark:text-white">
+                    <span class="material-symbols-outlined">menu</span>
+                    <!-- Mobile hamburger menu icon -->
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative min-h-[700px] lg:min-h-[600px] flex items-center bg-primary dark:bg-background-darker font-sans">
+        <!-- Hero section with full-width background -->
+        <div class="absolute inset-0 z-0 hidden lg:block">
+            <!-- Background image (desktop only) -->
+            <div class="absolute left-0 top-0 h-full w-full bg-cover bg-center opacity-40 mix-blend-overlay" data-alt="Luxurious car on a scenic drive at sunset, conveying aspiration and sophistication" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBQuBylsS_Lp5ckCh6WxbnsTH267dEmgZvhnVt0S0v-P2ns19dlTACg3uJpy8hCGZv-wAXQ1Ad9gHJSsxu95BVZzy81QxhidwiFjcNPWdMvBxnjbo6Du2tU5bxsxS0VDtrKb-ohyMBcxYsANF3cm2UWCQwjlsEBzeXr9HKC12EQyFByzDwIjn0wWi51OfMikLxhPFOheOHDtO1gPMxFxujaWzpXyNtj8LyrTLPFlica5N0mKyOj-p66i-fueLgnfzs-qkgM2kaMZAxx');"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-background-dark/40 to-transparent"></div>
+            <!-- Dark gradient overlay for text readability -->
+        </div>
+        <div class="relative z-10 mx-auto flex w-full max-w-7xl flex-col lg:flex-row items-center justify-between px-4 py-10 sm:px-6 lg:px-8 h-full">
+            <!-- Hero content container -->
+            <div class="flex flex-col justify-center text-center lg:text-left py-10 lg:py-0 w-full lg:w-1/2 pr-0 lg:pr-10 z-20">
+                <!-- Left column: text and search -->
+                <span class="mb-4 inline-block self-center lg:self-start rounded-full bg-primary/20 px-4 py-1.5 text-sm font-bold text-gray-200 backdrop-blur-sm border border-primary/30">
+                    HelpuFind. HelpUFinance. Helpufin
+                </span>
+                <h1 class="mb-6 text-5xl font-extrabold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
+                    Drive your dream today <br/><span class="luxury-text-gradient">Begins Here</span>
+                    <!-- Main headline with gold gradient on key phrase -->
+                </h1>
+                <p class="text-xl text-gray-300 sm:max-w-xl self-center lg:self-start mb-10 lg:mb-12">
+                    The premium marketplace powered by Helpufin. Experience seamless financing and verified dealerships.
+                </p>
+                <div class="w-full max-w-md mx-auto lg:mx-0 flex flex-col gap-3 rounded-xl bg-white p-4 shadow-2xl dark:bg-[#1a2332]">
+                    <!-- Search bar component -->
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-muted">search</span>
+                        <!-- Search icon -->
+                        <input class="h-12 w-full rounded-lg border-gray-200 bg-gray-50 pl-10 text-sm font-medium text-text-main placeholder-text-muted focus:border-primary focus:ring-primary dark:border-gray-700 dark:bg-background-dark dark:text-white dark:placeholder-gray-500" placeholder="Find your next luxury vehicle" type="text"/>
+                        <!-- Search input field -->
+                        <button class="absolute right-3 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-accent text-white flex items-center justify-center hover:bg-accent-light transition-colors">
+                            <a href="all-vehicles.html"><span class="material-symbols-outlined text-xl">arrow_forward</span></a>
+                            <!-- Submit arrow -->
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="relative w-full lg:w-1/2 aspect-video lg:aspect-[3/4] xl:aspect-video lg:min-h-[500px] mt-12 lg:mt-0 rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center bg-gray-800">
+                <!-- Right column: hero image/video -->
+                <img alt="High-end luxury vehicle parked in a modern, stylish setting" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3QYqp-nuIJRjZwMKtCX6S1Z6zR3-fCVKOVhSOEeuK1Uc74dg0aBnm0Fugn_iJRkApPJK7p01nTV8P33hhq0EYbBeC9QkTRqcwJzFOm4BFY7-YPFoTo6sWzjkaRIXTOp1_oxrBqluL8zMekP-yDVMCOCQgtizG-fW1AFUxcoZG9RDf-1bZp0mTBPyVjb_dtoPU3uu2uFLuUjNEqxbxHZK7DqQs3PPM1Yy1D957zUJagTKGSWQclq9vNb1X9poxQyAslPT3iqSXfBuT"/>
+                <!-- Main hero image -->
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <!-- Dark overlay with play button (suggests video) -->
+                    <button class="relative flex size-20 items-center justify-center rounded-full bg-accent text-white shadow-xl hover:scale-105 transition-transform">
+                        <span class="material-symbols-outlined text-5xl">play_arrow</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-background-light py-16 dark:bg-[#151c2a]">
+        <!-- Services / feature cards section -->
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                <!-- Card 1: Premium Services -->
+                <div class="group flex flex-col items-start rounded-2xl bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md dark:bg-background-dark dark:shadow-none dark:border dark:border-gray-800">
+                    <div class="mb-6 flex size-14 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-3xl">build_circle</span>
+                    </div>
+                    <h3 class="mb-3 text-xl font-bold text-text-main dark:text-white">Premium Services</h3>
+                    <p class="mb-6 text-sm leading-relaxed text-text-muted dark:text-gray-400">
+                        Vehicle Finance - New and Pre-Owned Vehicles, First Time Buyer Guide, Balloon/Residual Finance, Fleet Finance, Insuarance
+                    </p>
+                    <a class="mt-auto flex items-center text-sm font-bold text-primary hover:text-accent" href="services.html">
+                        Services <span class="material-symbols-outlined ml-1 text-base">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Card 2: Exclusive Fleet Solutions -->
+                <div class="group flex flex-col items-start rounded-2xl bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md dark:bg-background-dark dark:shadow-none dark:border dark:border-gray-800">
+                    <div class="mb-6 flex size-14 items-center justify-center rounded-xl bg-accent/20 text-accent group-hover:bg-accent group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-3xl">local_shipping</span>
+                    </div>
+                    <h3 class="mb-3 text-xl font-bold text-text-main dark:text-white">Exclusive Fleet Solutions</h3>
+                    <p class="mb-6 text-sm leading-relaxed text-text-muted dark:text-gray-400">
+                        Comprehensive fleet management for businesses. From acquisition to disposal, we optimize your operations.
+                    </p>
+                    <a class="mt-auto flex items-center text-sm font-bold text-primary hover:text-accent" href="fleet.html">
+                        Explore Fleet <span class="material-symbols-outlined ml-1 text-base">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Card 3: Tailored Finance -->
+                <div class="group flex flex-col items-start rounded-2xl bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md dark:bg-background-dark dark:shadow-none dark:border dark:border-gray-800">
+                    <div class="mb-6 flex size-14 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-3xl">account_balance_wallet</span>
+                    </div>
+                    <h3 class="mb-3 text-xl font-bold text-text-main dark:text-white">Tailored Finance</h3>
+                    <p class="mb-6 text-sm leading-relaxed text-text-muted dark:text-gray-400">
+                        Quick and transparent financing options tailored to your budget. Get pre-approved in minutes without impact.
+                    </p>
+                    <a class="mt-auto flex items-center text-sm font-bold text-primary hover:text-accent" href="apply.html">
+                        Apply Now <span class="material-symbols-outlined ml-1 text-base">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gradient-to-br from-primary/10 to-primary/5 py-20 dark:from-background-dark/70 dark:to-background-darker/70">
+        <!-- Automotive guides / resources section -->
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <span class="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-bold text-primary dark:text-gray-200 dark:bg-primary/20">
+                        Empower Your Drive
+                    </span>
+                    <h2 class="mb-6 text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight text-text-main dark:text-white">
+                        Navigate Your <br class="hidden sm:inline"/><span class="luxury-text-gradient">Automotive World</span>
+                    </h2>
+                    <p class="text-lg text-text-muted dark:text-gray-300 max-w-xl mx-auto lg:mx-0">
+                        Unlock expert insights, practical advice, and comprehensive guides to master every aspect of car ownership.
+                    </p>
+                </div>
+                <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+                    <!-- Guide cards grid -->
+                    <div class="group flex flex-col items-start rounded-xl bg-white p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-lg dark:bg-[#1a2332] dark:border dark:border-gray-800">
+                        <div class="mb-4 flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-2xl">build</span>
+                        </div>
+                        <h3 class="mb-2 text-lg font-bold text-text-main dark:text-white">Maintenance Tips</h3>
+                        <p class="text-sm text-text-muted dark:text-gray-400">
+                            Keep your car in top condition with essential care advice.
+                        </p>
+                        <a class="mt-4 text-sm font-semibold text-primary hover:text-accent flex items-center" href="maintain.html">
+                            Learn More <span class="material-symbols-outlined ml-1 text-base">arrow_forward</span>
+                        </a>
+                    </div>
+                    <div class="group flex flex-col items-start rounded-xl bg-white p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-lg dark:bg-[#1a2332] dark:border dark:border-gray-800">
+                        <div class="mb-4 flex size-12 items-center justify-center rounded-lg bg-accent/20 text-accent group-hover:bg-accent group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-2xl">shopping_bag</span>
+                        </div>
+                        <h3 class="mb-2 text-lg font-bold text-text-main dark:text-white">Buying Guides</h3>
+                        <p class="text-sm text-text-muted dark:text-gray-400">
+                            Make informed decisions when purchasing your next vehicle.
+                        </p>
+                        <a class="mt-4 text-sm font-semibold text-primary hover:text-accent flex items-center" href="buy-guide.html">
+                            Read Guide <span class="material-symbols-outlined ml-1 text-base">arrow_forward</span>
+                        </a>
+                    </div>
+                    <div class="group flex flex-col items-start rounded-xl bg-white p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-lg dark:bg-[#1a2332] dark:border dark:border-gray-800">
+                        <div class="mb-4 flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-2xl">directions</span>
+                        </div>
+                        <h3 class="mb-2 text-lg font-bold text-text-main dark:text-white">Road Trip Prep</h3>
+                        <p class="text-sm text-text-muted dark:text-gray-400">
+                            Prepare for epic adventures with our essential packing tips.
+                        </p>
+                        <a class="mt-4 text-sm font-semibold text-primary hover:text-accent flex items-center" href="road-trip.html">
+                            Get Ready <span class="material-symbols-outlined ml-1 text-base">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 dark:bg-background-dark">
+        <!-- Featured vehicles / inventory section -->
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+                <div>
+                    <h2 class="text-3xl font-extrabold tracking-tight text-text-main dark:text-white">Handpicked Selections for the Discerning Connoisseur</h2>
+                    <p class="mt-2 text-text-muted dark:text-gray-400">Explore our exclusive range of premium automobiles</p>
+                </div>
+                <a class="flex items-center text-sm font-bold text-primary hover:underline hover:text-accent" href="buy2.html">
+                    View All Inventory <span class="material-symbols-outlined ml-1 text-lg">arrow_right_alt</span>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <!-- Vehicle card 1: BMW X5 -->
+                <div class="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition-all hover:border-accent/50 hover:shadow-lg dark:border-gray-800 dark:bg-[#1a2332]">
+                    <div class="relative aspect-[4/3] w-full overflow-hidden bg-gray-200">
+                        <div class="absolute left-3 top-3 z-10 rounded bg-accent px-2 py-1 text-xs font-bold uppercase text-white">Exclusive Offer</div>
+                        <div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Sleek, modern white luxury SUV parked elegantly" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCOtUzLgYo8iDz8EqHTFH0CPbvRosiqYmxTUxdBVQIAWcR7whNEoeJlJ6iJSLguS8igCF0jaHObS6FKo97vdRA1tHRdeqkOr1WJECRMzWmESHNpt-9cQn32cfgk4UhHZRpFVBANBvDW6CrEx6X6ayAlliNTFmcToJtAnLpO1J0Ya-s5_QHCwWgk96TCUfVxCXZE89wBqSbf4V6yoql0sDbbvIapVJGR_Fvm6I0eeKTaugOzUnOdiWd_rt8UUA5iJQG40nHhtacBq9oJ');"></div>
+                        <button class="absolute bottom-3 right-3 flex size-8 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-sm hover:text-red-500">
+                            <span class="material-symbols-outlined text-lg">favorite</span>
+                        </button>
+                    </div>
+                    <div class="flex flex-1 flex-col p-4">
+                        <div class="mb-1 text-xs font-medium text-text-muted uppercase tracking-wider">2023 • SUV</div>
+                        <h3 class="text-lg font-bold text-text-main dark:text-white">BMW X5 xDrive40i</h3>
+                        <div class="mt-2 flex items-center gap-2 text-sm text-text-muted dark:text-gray-400">
+                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">speed</span> 12k mi</span>
+                            <span class="h-1 w-1 rounded-full bg-gray-300"></span>
+                            <span>Automatic</span>
+                        </div>
+                        <div class="mt-4 flex items-center justify-between border-t border-gray-200 pt-4 dark:border-gray-700">
+                            <span class="text-xl font-bold text-primary">R1,082,000</span>
+                            <span class="text-xs font-medium text-text-muted">Est. R16,072/mo</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Vehicle card 2: Mercedes-Benz C 300 -->
+                <div class="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition-all hover:border-accent/50 hover:shadow-lg dark:border-gray-800 dark:bg-[#1a2332]">
+                    <div class="relative aspect-[4/3] w-full overflow-hidden bg-gray-200">
+                        <div class="absolute left-3 top-3 z-10 rounded bg-primary px-2 py-1 text-xs font-bold uppercase text-white">Certified</div>
+                        <div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Elegant silver Mercedes-Benz C-Class in a sophisticated urban setting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCyz3k6ruFx056_8bBGbQUi7_8v59kxbyhbBjHPM-EZwXA0nFmdfR_uxXgmUOLv2OTqJ0NhbLBU16yGnCp9ZgY1tYrcqJOjcAP4dfIrzBDq4HIu5wnB0aAjx7IUVNeCxiQBsQwKKPDHGPD0fRfQQgRxoGxVuv1NCtYSGflNGjro7i21NUo62RrS4fw2bdK1zRf3V2SUDnOX7eerfqXtft0J10pW2aOruHUak9YAy4zK5loUCXmZJxDDOIna0lpDzffJXc72Naa2gu3A');"></div>
+                        <button class="absolute bottom-3 right-3 flex size-8 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-sm hover:text-red-500">
+                            <span class="material-symbols-outlined text-lg">favorite</span>
+                        </button>
+                    </div>
+                    <div class="flex flex-1 flex-col p-4">
+                        <div class="mb-1 text-xs font-medium text-text-muted uppercase tracking-wider">2022 • Sedan</div>
+                        <h3 class="text-lg font-bold text-text-main dark:text-white">Mercedes-Benz C 300</h3>
+                        <div class="mt-2 flex items-center gap-2 text-sm text-text-muted dark:text-gray-400">
+                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">speed</span> 5k mi</span>
+                            <span class="h-1 w-1 rounded-full bg-gray-300"></span>
+                            <span>Automatic</span>
+                        </div>
+                        <div class="mt-4 flex items-center justify-between border-t border-gray-200 pt-4 dark:border-gray-700">
+                            <span class="text-xl font-bold text-primary">R796,000</span>
+                            <span class="text-xs font-medium text-text-muted">Est. R11,808/mo</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Vehicle card 3: Ford Mustang GT -->
+                <div class="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition-all hover:border-accent/50 hover:shadow-lg dark:border-gray-800 dark:bg-[#1a2332]">
+                    <div class="relative aspect-[4/3] w-full overflow-hidden bg-gray-200">
+                        <div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Dynamic shot of a red luxury sports coupe on a winding road" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAvOo6ng5qDfEz1xgorBe_-I1vXNXouzmGBALEq6LuKkv5xdRjAy8iK6e4xQionZ9HETe2IweTXJz-CwKVk3XpW2GzAGYWEx9mfP3P8427mEEsod5rL-V1SgbDWl-rIJZxyAX4edFWA_y_aizbmhbO7FC11tLxnYSPOmMgfxWmXgZDxU2pU4UxmMvnm5dsWDC-l3a45l5FFdtqsQY6QJL3x_agWNGB-SfbsqDgf6B_RCW9L5soyKQBnGerW8ZT9K8WaYY1CHu3sGZe3');"></div>
+                        <button class="absolute bottom-3 right-3 flex size-8 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-sm hover:text-red-500">
+                            <span class="material-symbols-outlined text-lg">favorite</span>
+                        </button>
+                    </div>
+                    <div class="flex flex-1 flex-col p-4">
+                        <div class="mb-1 text-xs font-medium text-text-muted uppercase tracking-wider">2021 • Coupe</div>
+                        <h3 class="text-lg font-bold text-text-main dark:text-white">Ford Mustang GT</h3>
+                        <div class="mt-2 flex items-center gap-2 text-sm text-text-muted dark:text-gray-400">
+                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">speed</span> 18k mi</span>
+                            <span class="h-1 w-1 rounded-full bg-gray-300"></span>
+                            <span>Manual</span>
+                        </div>
+                        <div class="mt-4 flex items-center justify-between border-t border-gray-200 pt-4 dark:border-gray-700">
+                            <span class="text-xl font-bold text-primary">R589,000</span>
+                            <span class="text-xs font-medium text-text-muted">Est. R8,856/mo</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Vehicle card 4: Audi Q5 -->
+                <div class="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition-all hover:border-accent/50 hover:shadow-lg dark:border-gray-800 dark:bg-[#1a2332]">
+                    <div class="relative aspect-[4/3] w-full overflow-hidden bg-gray-200">
+                        <div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Sophisticated gray Audi Q5 SUV in an executive setting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBpv--Mw6uYIY4mCdXVea-gojERdI6v67qtRD2mhVlnmouV4oZRQHl5oYCluu_fQi6C2QZpchwRMrlFMcp1dWMua3Lk11vs9X3ZLjtJJGDlDtFzprwAV1OBEm6xgDJymkLHCDppVluHQd88bkMtz4FhwsRg_M4lOH522bNDuqDsKFiLaKCgxcFk40u-xDnW2RAKN3kFTu5HXPFN-XHJ_gRaXTD6VzpexZo3e-Hcz82HlSG48ylm4Car7VJSG3RUIPX0a9lbQq3ZpUwJ');"></div>
+                        <button class="absolute bottom-3 right-3 flex size-8 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-sm hover:text-red-500">
+                            <span class="material-symbols-outlined text-lg">favorite</span>
+                        </button>
+                    </div>
+                    <div class="flex flex-1 flex-col p-4">
+                        <div class="mb-1 text-xs font-medium text-text-muted uppercase tracking-wider">2023 • SUV</div>
+                        <h3 class="text-lg font-bold text-text-main dark:text-white">Audi Q5 Premium</h3>
+                        <div class="mt-2 flex items-center gap-2 text-sm text-text-muted dark:text-gray-400">
+                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">speed</span> 8k mi</span>
+                            <span class="h-1 w-1 rounded-full bg-gray-300"></span>
+                            <span>Automatic</span>
+                        </div>
+                        <div class="mt-4 flex items-center justify-between border-t border-gray-200 pt-4 dark:border-gray-700">
+                            <span class="text-xl font-bold text-primary">R860,000</span>
+                            <span class="text-xs font-medium text-text-muted">Est. R12,954/mo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="border-y border-gray-200 bg-white py-12 dark:border-gray-800 dark:bg-[#151c2a]">
+        <!-- Trusted partners / dealerships section -->
+        <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+            <p class="mb-8 text-sm font-semibold uppercase tracking-widest text-text-muted">Trusted by leading luxury dealerships</p>
+            <div class="flex flex-wrap items-center justify-center gap-8 opacity-60 grayscale transition-all hover:grayscale-0 sm:gap-16">
+                <div class="flex items-center gap-2 text-2xl font-bold text-gray-800 dark:text-white"><span class="material-symbols-outlined text-4xl">toys</span> Prestige Motors</div>
+                <div class="flex items-center gap-2 text-2xl font-bold text-gray-800 dark:text-white"><span class="material-symbols-outlined text-4xl">commute</span> Elite Drive</div>
+                <div class="flex items-center gap-2 text-2xl font-bold text-gray-800 dark:text-white"><span class="material-symbols-outlined text-4xl">local_taxi</span> Grand Auto</div>
+                <div class="flex items-center gap-2 text-2xl font-bold text-gray-800 dark:text-white"><span class="material-symbols-outlined text-4xl">airport_shuttle</span> Premier Fleet</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0b0e11] border-t border-white/5 pt-16 pb-8">
+        <!-- Footer section with multiple columns -->
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Four-column footer layout -->
+                <div class="space-y-4">
+                    <!-- Brand and description column -->
+                    <div class="flex items-center gap-2">
+                        <div class="size-8 bg-gradient-to-br from-primary to-blue-600 rounded flex items-center justify-center text-white">
+                            <span class="material-symbols-outlined text-lg">directions_car</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">Helpufin <span class="text-primary">Auto</span></h4>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Helpufin Auto is a proud partner of <a class="text-primary hover:text-accent hover:underline" href="#">Helpufin.co.za</a>. We simplify the car buying journey with transparency, speed, and security.
+                    </p>
+                    <div class="flex gap-4 pt-6">
+                        <!-- Social media icons in footer -->
+                        <a class="size-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary/20 text-gray-400 hover:text-primary transition-all" href="https://www.tiktok.com/@helpufin" aria-label="TikTok">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path></svg>
+                        </a>
+                        <a class="size-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary/20 text-gray-400 hover:text-primary transition-all" href="https://web.facebook.com/HelpUFin?_rdc=1&_rdr#" aria-label="Facebook">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+                        </a>
+                        <a class="size-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary/20 text-gray-400 hover:text-primary transition-all" href="https://www.instagram.com/helpufin/" aria-label="Instagram">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069-3.204 0-3.584-.011-4.849-.069-3.229-.148-4.771-1.664-4.919-4.919-.059-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <!-- Marketplace links column -->
+                    <h5 class="text-white font-bold mb-4">Marketplace</h5>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a class="hover:text-primary transition-colors" href="all-vehicles.html">Browse Cars</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="sell.html">Sell Your Car</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Car Valuation</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Dealer Portal</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <!-- Support links column -->
+                    <h5 class="text-white font-bold mb-4">Support</h5>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Financing FAQ</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <!-- Newsletter subscription column -->
+                    <h5 class="text-white font-bold mb-4">Stay Updated</h5>
+                    <p class="text-sm text-gray-400 mb-4">Latest arrivals and price drops directly to your inbox.</p>
+                    <form class="flex gap-2">
+                        <input class="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm text-white placeholder-gray-500 w-full focus:ring-1 focus:ring-primary focus:border-primary outline-none" placeholder="Email address" type="email"/>
+                        <button class="bg-primary hover:bg-blue-600 text-white rounded-lg px-3 flex items-center justify-center transition-colors">
+                            <span class="material-symbols-outlined">send</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <!-- Footer bottom bar with copyright and legal links -->
+                <p class="text-xs text-gray-500">© 2023 Helpufin Auto. All rights reserved. A subsidiary of Helpufin Group.</p>
+                <div class="flex gap-6 text-xs text-gray-500">
+                    <a class="hover:text-white" href="#">Privacy Policy</a>
+                    <a class="hover:text-white" href="#">Terms of Service</a>
+                    <a class="hover:text-white" href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+// ===============================================
+// VEHICLE SAVE / UNSAVE FEATURE – index.html
+// ===============================================
+
+// Extracts all necessary data from a vehicle card to store when saved
+function getVehicleData(card) {
+  // Vehicle name (e.g., "Mercedes-Benz C 300")
+  const name = card.querySelector('h3').textContent.trim();
+
+  // Year and type line (e.g., "2022 • Sedan")
+  const yearTypeLine = card.querySelector('div.mb-1')?.textContent.trim() || '';
+  const [year, type] = yearTypeLine.split(' • ').map(s => s.trim());
+
+  // Mileage (inside the speed icon span – we grab the text after the icon)
+  const mileageSpan = card.querySelector('div.mt-2 span.flex.items-center.gap-1');
+  const mileage = mileageSpan ? mileageSpan.textContent.trim().replace('speed', '').trim() : '';
+
+  // Price (e.g., "R796,000")
+  const price = card.querySelector('span.text-xl.font-bold').textContent.trim();
+
+  // Main image URL – extracted from the background-image CSS style
+  const bgDiv = card.querySelector('div.h-full.w-full.bg-cover');
+  const style = bgDiv?.getAttribute('style') || '';
+  const match = style.match(/url\(['"]?(.*?)['"]?\)/);
+  const imageUrl = match ? match[1] : '';
+
+  // Unique ID to identify this exact vehicle (prevents duplicates)
+  const id = `${name}-${year}-${mileage.replace(/\s+/g, '')}-${price.replace(/\D/g, '')}`;
+
+  return { id, name, year, type, mileage, price, imageUrl };
+}
+
+// Checks if a vehicle with the given ID is already in localStorage
+function isSaved(id) {
+  const saved = JSON.parse(localStorage.getItem('savedVehicles') || '[]');
+  return saved.some(v => v.id === id);
+}
+
+// Handles clicking the heart button – saves or unsaves the vehicle
+function toggleSave(card) {
+  const vehicle = getVehicleData(card);                // Get data for this card
+  let saved = JSON.parse(localStorage.getItem('savedVehicles') || '[]'); // Load current saved list
+
+  const index = saved.findIndex(v => v.id === vehicle.id); // Is it already saved?
+  const heartBtn = card.querySelector('button.absolute.bottom-3.right-3'); // Heart button
+  const heartIcon = heartBtn.querySelector('span.material-symbols-outlined'); // Icon inside
+
+  if (index > -1) {
+    // === UNSAVE ===
+    saved.splice(index, 1);                           // Remove from array
+    heartIcon.textContent = 'favorite_border';        // Change to outline heart
+    heartBtn.classList.remove('text-red-500');        // Remove red color
+    showToast('Removed from saved');                  // Feedback to user
+  } else {
+    // === SAVE ===
+    saved.push(vehicle);                              // Add to array
+    heartIcon.textContent = 'favorite';               // Change to filled heart
+    heartBtn.classList.add('text-red-500');           // Make heart red
+    showToast('Vehicle saved');                       // Feedback to user
+  }
+
+  // Save updated list back to localStorage
+  localStorage.setItem('savedVehicles', JSON.stringify(saved));
+}
+
+// Updates the heart icon to reflect current saved status when page loads
+function updateHeartIcon(card) {
+  const vehicle = getVehicleData(card);
+  const heartBtn = card.querySelector('button.absolute.bottom-3.right-3');
+  const heartIcon = heartBtn.querySelector('span.material-symbols-outlined');
+
+  if (isSaved(vehicle.id)) {
+    heartIcon.textContent = 'favorite';               // Filled heart if saved
+    heartBtn.classList.add('text-red-500');           // Red color
+  } else {
+    heartIcon.textContent = 'favorite_border';        // Outline heart if not saved
+    heartBtn.classList.remove('text-red-500');        // Gray/default color
+  }
+}
+
+// Simple toast notification that appears briefly in bottom-right corner
+function showToast(message) {
+  const toast = document.createElement('div');
+  toast.textContent = message;
+  toast.className = 'fixed bottom-6 right-6 z-50 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-xl text-sm font-medium';
+  document.body.appendChild(toast);
+  // Auto-remove after 3 seconds
+  setTimeout(() => toast.remove(), 3000);
+}
+
+// Main initialization – runs when the page fully loads
+document.addEventListener('DOMContentLoaded', () => {
+  // Find all vehicle cards on the page
+  const cards = document.querySelectorAll('div.group.flex.flex-col.overflow-hidden.rounded-xl');
+
+  cards.forEach(card => {
+    // Set correct heart icon based on saved status
+    updateHeartIcon(card);
+
+    // Attach click handler to the heart button
+    const heartBtn = card.querySelector('button.absolute.bottom-3.right-3');
+    if (heartBtn) {
+      heartBtn.addEventListener('click', (e) => {
+        e.preventDefault();       // Prevent any default button behavior
+        e.stopPropagation();      // Stop click from bubbling to card
+        toggleSave(card);         // Save or unsave the vehicle
+      });
+    }
+  });
+});
+</script>
+</body>
+</html>
